@@ -68,16 +68,16 @@ static void MX_ADC1_Init(void);
 volatile int subido=1,bajado=0,subir,bajar;
 int tiempo=0;
 __IO uint16_t  luminosidad=0;
-void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)		//gestion de las interrupciones
 {
-	if(GPIO_Pin == GPIO_PIN_0)
+	if(GPIO_Pin == GPIO_PIN_0)		//selecciono el boton de usuario
 	{
 		if(subido==1)
 		bajar=1;
 	/*else
 		subir=1;*/
 	}
-	if(GPIO_Pin== GPIO_PIN_1)
+	if(GPIO_Pin== GPIO_PIN_1)		//gestiono el boton externo
 	{
 		if(bajado==1)
 		subir=1;
@@ -128,7 +128,7 @@ int main(void)
 		HAL_NVIC_EnableIRQ(EXTI0_IRQn);
 	
 		
-		while(((subir==1)&&(subido==0))||((luminosidad<50)&&(subido==0))){
+		while(((subir==1)&&(subido==0))||((luminosidad<10)&&(subido==0))){		//subir persiana
 			HAL_GPIO_WritePin(GPIOD,GPIO_PIN_12,GPIO_PIN_RESET);
 			HAL_GPIO_WritePin(GPIOD, GPIO_PIN_13, GPIO_PIN_RESET);
 			HAL_GPIO_WritePin(GPIOD,GPIO_PIN_15,GPIO_PIN_SET);
@@ -146,16 +146,16 @@ if (HAL_ADC_PollForConversion(&hadc1,1000000)==HAL_OK)
  luminosidad=HAL_ADC_GetValue(&hadc1);
 }
 //HAL_ADC_Stop(&hadc1);
-				while(((bajar==1) && (bajado==0))||((luminosidad>250) && (bajado==0))){
+				while(((bajar==1) && (bajado==0))||((luminosidad>250) && (bajado==0))){		//bajar persiana
 			HAL_GPIO_WritePin(GPIOD, GPIO_PIN_13, GPIO_PIN_RESET);
 			HAL_GPIO_WritePin(GPIOD, GPIO_PIN_12, GPIO_PIN_RESET);
 			HAL_GPIO_WritePin(GPIOD,GPIO_PIN_14,GPIO_PIN_SET);
 			HAL_Delay(2000);
 			HAL_GPIO_WritePin(GPIOD, GPIO_PIN_14, GPIO_PIN_RESET);
-					HAL_GPIO_WritePin(GPIOD,GPIO_PIN_12,GPIO_PIN_SET);
+			HAL_GPIO_WritePin(GPIOD,GPIO_PIN_12,GPIO_PIN_SET);
 			bajado=1;
-					bajar=0;
-					subido=0;
+			bajar=0;
+			subido=0;
 		}
 		
 		
@@ -220,7 +220,7 @@ void SystemClock_Config(void)
 }
 
 /* ADC1 init function */
-static void MX_ADC1_Init(void)
+static void MX_ADC1_Init(void)		//tratamiento ADC
 {
 
   ADC_ChannelConfTypeDef sConfig;
