@@ -1,0 +1,26 @@
+--cpu=Cortex-M4.fp
+"trabajaso\stm32f4xx_it.o"
+"trabajaso\stm32f4xx_hal_msp.o"
+"trabajaso\main.o"
+"trabajaso\system_stm32f4xx.o"
+"trabajaso\startup_stm32f407xx.o"
+"trabajaso\stm32f4xx_hal_cortex.o"
+"trabajaso\stm32f4xx_hal_flash_ex.o"
+"trabajaso\stm32f4xx_hal.o"
+"trabajaso\stm32f4xx_hal_pwr.o"
+"trabajaso\stm32f4xx_hal_adc_ex.o"
+"trabajaso\stm32f4xx_hal_tim_ex.o"
+"trabajaso\stm32f4xx_hal_gpio.o"
+"trabajaso\stm32f4xx_hal_rcc.o"
+"trabajaso\stm32f4xx_hal_flash.o"
+"trabajaso\stm32f4xx_hal_flash_ramfunc.o"
+"trabajaso\stm32f4xx_hal_adc.o"
+"trabajaso\stm32f4xx_hal_dma.o"
+"trabajaso\stm32f4xx_hal_pwr_ex.o"
+"trabajaso\stm32f4xx_hal_tim.o"
+"trabajaso\stm32f4xx_hal_dma_ex.o"
+"trabajaso\stm32f4xx_hal_rcc_ex.o"
+--library_type=microlib --strict --scatter "trabajaso\trabajaso.sct"
+--diag_suppress=L6329 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list "trabajaso.map" -o trabajaso\trabajaso.axf
