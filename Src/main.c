@@ -1,3 +1,4 @@
+
 /**
   ******************************************************************************
   * File Name          : main.c
@@ -132,13 +133,26 @@ int main(void)
 			HAL_GPIO_WritePin(GPIOD,GPIO_PIN_12,GPIO_PIN_RESET);
 			HAL_GPIO_WritePin(GPIOD, GPIO_PIN_13, GPIO_PIN_RESET);
 			HAL_GPIO_WritePin(GPIOD,GPIO_PIN_15,GPIO_PIN_SET);
+			HAL_GPIO_WritePin(GPIOD,GPIO_PIN_7,GPIO_PIN_SET);
+			HAL_GPIO_WritePin(GPIOD,GPIO_PIN_5,GPIO_PIN_SET);
+			HAL_GPIO_WritePin(GPIOD,GPIO_PIN_6,GPIO_PIN_SET);
+			HAL_GPIO_WritePin(GPIOD,GPIO_PIN_8,GPIO_PIN_SET);
+			HAL_GPIO_WritePin(GPIOD,GPIO_PIN_10,GPIO_PIN_SET);
+			
 			HAL_Delay(2000);
 			HAL_GPIO_WritePin(GPIOD, GPIO_PIN_15, GPIO_PIN_RESET);
+			HAL_GPIO_WritePin(GPIOD,GPIO_PIN_7,GPIO_PIN_RESET);
+			HAL_GPIO_WritePin(GPIOD,GPIO_PIN_5,GPIO_PIN_RESET);
+			HAL_GPIO_WritePin(GPIOD,GPIO_PIN_6,GPIO_PIN_RESET);
+			HAL_GPIO_WritePin(GPIOD,GPIO_PIN_8,GPIO_PIN_RESET);
+			HAL_GPIO_WritePin(GPIOD,GPIO_PIN_10,GPIO_PIN_RESET);
 			HAL_GPIO_WritePin(GPIOD,GPIO_PIN_13,GPIO_PIN_SET);
 			subido=1;
 			bajado=0;
 			subir=0;
 			bajar=0;
+			
+			
 		}
 		HAL_ADC_Start(&hadc1);
 if (HAL_ADC_PollForConversion(&hadc1,1000000)==HAL_OK)
@@ -345,3 +359,4 @@ void assert_failed(uint8_t* file, uint32_t line)
 */ 
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
+
