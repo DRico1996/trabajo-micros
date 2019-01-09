@@ -146,7 +146,7 @@ if (HAL_ADC_PollForConversion(&hadc1,1000000)==HAL_OK)
  luminosidad=HAL_ADC_GetValue(&hadc1);
 }
 //HAL_ADC_Stop(&hadc1);
-				while(((bajar==1) && (bajado==0))||((luminosidad>250) && (bajado==0))){		//bajar persiana
+				while(((bajar==1) && (bajado==0))||((luminosidad>180) && (bajado==0))){		//bajar persiana
 			HAL_GPIO_WritePin(GPIOD, GPIO_PIN_13, GPIO_PIN_RESET);
 			HAL_GPIO_WritePin(GPIOD, GPIO_PIN_12, GPIO_PIN_RESET);
 			HAL_GPIO_WritePin(GPIOD,GPIO_PIN_14,GPIO_PIN_SET);
